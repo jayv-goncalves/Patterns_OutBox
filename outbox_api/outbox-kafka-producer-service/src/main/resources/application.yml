@@ -1,0 +1,23 @@
+debezium:
+  name: engine
+  connector-class: io.debezium.connector.mysql.MySqlConnector
+  bootstrap-servers: localhost:9092
+  database:
+    hostname: localhost
+    port: 3306
+    user: root
+    password: rootpassword
+    server-id: 85744
+    server-name: mysql-server-1
+    include-list: outbox-db
+  table:
+    include-list: outbox-db.user_events
+  offset:
+    storage: org.apache.kafka.connect.storage.FileOffsetBackingStore
+    storage-file-filename: offsets.dat
+    flush-interval-ms: 60000
+  schema-history:
+    internal: io.debezium.storage.file.history.FileSchemaHistory
+    internal-file-filename: schema-history.dat
+  topic:
+    prefix: outbox

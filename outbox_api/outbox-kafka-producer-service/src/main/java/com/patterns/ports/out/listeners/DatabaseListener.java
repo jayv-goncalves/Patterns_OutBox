@@ -1,0 +1,5 @@
+package com.patterns.ports.out.listeners;
+
+public interface DatabaseListener {
+    void listenDatabase();
+}

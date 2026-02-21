@@ -21,7 +21,7 @@
     <dependencies>
         <dependency>
             <groupId>com.patterns</groupId>
-            <artifactId>kafka-producer</artifactId>
+            <artifactId>outbox-kafka-producer-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
         <dependency>
