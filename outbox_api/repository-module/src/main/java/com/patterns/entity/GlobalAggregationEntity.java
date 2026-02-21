@@ -1,4 +1,4 @@
-package com.patterns.repository.entity;
+package com.patterns.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
@@ -17,6 +17,8 @@ public class GlobalAggregationEntity {
     private int transaction_count;
 
     private Instant last_updated;
+
+    public GlobalAggregationEntity() {}
 
     public GlobalAggregationEntity(Long id, Long total_money, int transaction_count, Instant last_updated) {
         this.id = id;

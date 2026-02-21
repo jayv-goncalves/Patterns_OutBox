@@ -1,0 +1,54 @@
+package com.patterns.outbox_api.dtos;
+
+import java.time.Instant;
+
+public class AggregationDTO {
+    private String id;
+
+    private Long total_money;
+
+    private int transaction_count;
+
+    private Instant last_updated;
+
+    public AggregationDTO() {}
+
+    public AggregationDTO(String id, Long total_money, int transaction_count, Instant last_updated) {
+        this.id = id;
+        this.total_money = total_money;
+        this.transaction_count = transaction_count;
+        this.last_updated = last_updated;
+    }
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Long getTotal_money() {
+        return total_money;
+    }
+
+    public void setTotal_money(Long total_money) {
+        this.total_money = total_money;
+    }
+
+    public Instant getLast_updated() {
+        return last_updated;
+    }
+
+    public void setLast_updated(Instant last_updated) {
+        this.last_updated = last_updated;
+    }
+
+    public int getTransaction_count() {
+        return transaction_count;
+    }
+
+    public void setTransaction_count(int transaction_count) {
+        this.transaction_count = transaction_count;
+    }
+}

@@ -50,8 +50,8 @@ public class DatabaseListener {
         props.setProperty("database.password", "rootpassword");
         props.setProperty("database.server.id", "85744");
         props.setProperty("database.server.name", "mysql-server-1");
-        props.setProperty("database.include.list", "appdb");
-        props.setProperty("table.include.list", "appdb.user_events");
+        props.setProperty("database.include.list", "outbox-db");
+        props.setProperty("table.include.list", "outbox-db.user_events");
 
         /* Offset storage configuration */
         props.setProperty("offset.storage", "org.apache.kafka.connect.storage.FileOffsetBackingStore");

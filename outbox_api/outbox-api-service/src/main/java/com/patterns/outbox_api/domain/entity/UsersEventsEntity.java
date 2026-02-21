@@ -1,0 +1,64 @@
+package com.patterns.outbox_api.domain.entity;
+
+import jakarta.persistence.*;
+
+@Entity
+@Table(name = "users_events")
+public class UsersEventsEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id_event;
+
+    private Long id_user;
+
+    public UsersEventsEntity() {}
+
+    public UsersEventsEntity(Long id_user, Long money, String status) {
+        this.id_user = id_user;
+        this.money = money;
+        this.status = status;
+    }
+
+    public UsersEventsEntity(Long id_event, Long id_user, Long money, String status) {
+        this.id_event = id_event;
+        this.id_user = id_user;
+        this.money = money;
+        this.status = status;
+    }
+
+    public Long getId_event() {
+        return id_event;
+    }
+
+    public void setId_event(Long id_event) {
+        this.id_event = id_event;
+    }
+
+    public Long getId_user() {
+        return id_user;
+    }
+
+    public void setId_user(Long id_user) {
+        this.id_user = id_user;
+    }
+
+    public Long getMoney() {
+        return money;
+    }
+
+    public void setMoney(Long money) {
+        this.money = money;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    private Long money;
+
+    private String status;
+}

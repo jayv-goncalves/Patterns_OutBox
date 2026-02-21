@@ -22,7 +22,6 @@
 		<developer/>
 	</developers>
 	<modules>
-		<module>api-module</module>
 		<module>main-module</module>
 		<module>kafka-producer</module>
         <module>domain-module</module>

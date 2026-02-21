@@ -1,7 +1,7 @@
 ## Project Goal:
 - [X] Implement Kafka Consumer
 - [X] Implement Materialized Aggregation to sum amount
-- [ ] Implement API /total_amount
+- [X] Implement API /total_amount
 - [ ] Add unit test
 - [ ] Add integration test
 
@@ -19,3 +19,5 @@
 - [ ] Adjust Outbox-api to call Query-Aggregation instead of retrieving the data direct from the database
 
 
+## Bugs
+- [ ] Fix the "money" to return cents
