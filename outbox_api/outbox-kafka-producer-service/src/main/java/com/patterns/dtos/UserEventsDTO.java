@@ -1,4 +1,4 @@
-package com.patterns.dtos;
+package main.java.com.patterns.dtos;
 
 public class UserEventsDTO {
     public Long id_event;

@@ -36,7 +36,7 @@
         </dependency>
         <dependency>
             <groupId>com.patterns</groupId>
-            <artifactId>kafka-consumer</artifactId>
+            <artifactId>outbox-kafka-consumer-service</artifactId>
             <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>

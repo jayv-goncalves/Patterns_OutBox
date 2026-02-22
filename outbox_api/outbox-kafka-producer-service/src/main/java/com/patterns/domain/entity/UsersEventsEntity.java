@@ -1,4 +1,4 @@
-package com.patterns.domain.entity;
+package main.java.com.patterns.domain.entity;
 
 import jakarta.persistence.*;
 

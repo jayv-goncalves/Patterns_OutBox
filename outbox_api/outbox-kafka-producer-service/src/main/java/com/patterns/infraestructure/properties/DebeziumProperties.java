@@ -1,4 +1,4 @@
-package com.patterns.infraestructure.properties;
+package main.java.com.patterns.infraestructure.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
@@ -84,7 +84,7 @@ public class DebeziumProperties {
         private Integer port;
         private String user;
         private String password;
-        private Integer serverId;
+        private Long serverId;
         private String serverName;
         private String includeList;
 
@@ -120,11 +120,11 @@ public class DebeziumProperties {
             this.password = password;
         }
 
-        public Integer getServerId() {
+        public Long getServerId() {
             return serverId;
         }
 
-        public void setServerId(Integer serverId) {
+        public void setServerId(Long serverId) {
             this.serverId = serverId;
         }
 

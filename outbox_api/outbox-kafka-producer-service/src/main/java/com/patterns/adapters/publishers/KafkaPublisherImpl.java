@@ -1,7 +1,7 @@
-package com.patterns.adapters.publishers;
+package main.java.com.patterns.adapters.publishers;
 
-import com.patterns.dtos.UserEventsDTO;
-import com.patterns.ports.out.publishers.EventPublisher;
+import main.java.com.patterns.dtos.UserEventsDTO;
+import main.java.com.patterns.ports.out.publishers.EventPublisher;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;

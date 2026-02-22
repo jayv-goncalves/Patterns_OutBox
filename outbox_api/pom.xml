@@ -26,7 +26,7 @@
 		<module>outbox-kafka-producer-service</module>
         <module>domain-module</module>
         <module>repository-module</module>
-		<module>kafka-consumer</module>
+		<module>outbox-kafka-consumer-service</module>
 	</modules>
 	<scm>
 		<connection/>

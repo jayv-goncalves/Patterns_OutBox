@@ -1,13 +1,13 @@
-package com.patterns.domain.service;
+package main.java.com.patterns.domain.service;
 
 import com.google.gson.Gson;
-import com.patterns.EventStatus;
-import com.patterns.domain.entity.UsersEventsEntity;
-import com.patterns.dtos.PayloadDataDTO;
-import com.patterns.dtos.UserEventsDTO;
-import com.patterns.ports.in.services.ProcessDatabaseEventService;
-import com.patterns.ports.out.publishers.EventPublisher;
-import com.patterns.ports.out.repositories.UsersEventsRepository;
+import main.java.com.patterns.domain.entity.UsersEventsEntity;
+import main.java.com.patterns.dtos.EventStatus;
+import main.java.com.patterns.dtos.PayloadDataDTO;
+import main.java.com.patterns.dtos.UserEventsDTO;
+import main.java.com.patterns.ports.in.services.ProcessDatabaseEventService;
+import main.java.com.patterns.ports.out.publishers.EventPublisher;
+import main.java.com.patterns.ports.out.repositories.UsersEventsRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
@@ -25,7 +25,7 @@ public class ProcessDatabaseEventServiceImpl implements ProcessDatabaseEventServ
 
     @Override
     public void execute(String event) {
-        UserEventsDTO  userEvents = mapEvent(event);
+        UserEventsDTO userEvents = mapEvent(event);
 
         if(Objects.nonNull(userEvents) && userEvents.status.equals(EventStatus.PENDING.name())) {
             userEvents.status = EventStatus.IN_PROCESS.name();

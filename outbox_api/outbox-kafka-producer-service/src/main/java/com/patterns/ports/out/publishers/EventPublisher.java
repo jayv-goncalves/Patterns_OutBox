@@ -1,6 +1,6 @@
-package com.patterns.ports.out.publishers;
+package main.java.com.patterns.ports.out.publishers;
 
-import com.patterns.dtos.UserEventsDTO;
+import main.java.com.patterns.dtos.UserEventsDTO;
 
 public interface EventPublisher {
     boolean publishEvent(UserEventsDTO userEvents);

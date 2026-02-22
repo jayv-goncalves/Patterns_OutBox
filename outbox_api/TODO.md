@@ -6,7 +6,9 @@
 - [ ] Add integration test
 
 ## Refactor Outbox folder:
-- [ ] Remove common modules (like repository module, domain module, etc.)
+- [X] Remove common modules (like repository module, domain module, etc.)
+- [ ] Add Spring initializer in all services;
+- [ ] Add application properties in all services;
 - [ ] Implement correct layers to the application so they can work isolated
 - [ ] Implement docker for each application
 - [ ] Update offset logic to not break when Container is recreated

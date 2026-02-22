@@ -1,11 +1,11 @@
-package com.patterns.infraestructure.config;
+package main.java.com.patterns.infraestructure.config;
 
-import com.patterns.infraestructure.properties.DebeziumProperties;
-import com.patterns.ports.in.services.ProcessDatabaseEventService;
 import io.debezium.engine.ChangeEvent;
 import io.debezium.engine.DebeziumEngine;
 import io.debezium.engine.format.Json;
 import io.debezium.engine.format.KeyValueHeaderChangeEventFormat;
+import main.java.com.patterns.infraestructure.properties.DebeziumProperties;
+import main.java.com.patterns.ports.in.services.ProcessDatabaseEventService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -30,7 +30,7 @@ public class DebeziumEngineConfig {
         p.setProperty("database.port",            String.valueOf(debeziumProperties.getDatabase().getPort()));
         p.setProperty("database.user",                         debeziumProperties.getDatabase().getUser());
         p.setProperty("database.password",                     debeziumProperties.getDatabase().getPassword());
-        p.setProperty("database.server.id",                    debeziumProperties.getDatabase().getServerId());
+        p.setProperty("database.server.id",                    debeziumProperties.getDatabase().getServerId().toString());
         p.setProperty("database.server.name",                  debeziumProperties.getDatabase().getServerName());
         p.setProperty("database.include.list",                 debeziumProperties.getDatabase().getIncludeList());
         p.setProperty("table.include.list",                    debeziumProperties.getTable().getIncludeList());
