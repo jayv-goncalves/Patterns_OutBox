@@ -1,3 +1,27 @@
+spring.application.name: outbox-kafka-producer-service
+
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/outbox-db
+    username: appuser
+    password: appassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  kafka:
+    topic: outbox
+    bootstrap-server: localhost:9092
+    producer:
+      client-id: outbox
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: rg.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring:
+          json:
+            add:
+              type:
+                headers: false
+
 debezium:
   name: engine
   connector-class: io.debezium.connector.mysql.MySqlConnector

@@ -1,0 +1,10 @@
+spring.application.name: outbox-api-service
+
+spring:
+  jpa:
+    show-sql: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/outbox-db
+    username: appuser
+    password: appassword
+    driver-class-name: com.mysql.cj.jdbc.Driver
