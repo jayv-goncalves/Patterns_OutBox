@@ -1,7 +1,7 @@
-package com.patterns.domain.service;
+package main.java.com.patterns.domain.service;
 
-import com.patterns.ports.in.service.ProcessEventService;
-import com.patterns.ports.out.repository.AggregationRepository;
+import main.java.com.patterns.ports.in.service.ProcessEventService;
+import main.java.com.patterns.ports.out.repository.AggregationRepository;
 import org.springframework.stereotype.Service;
 
 @Service

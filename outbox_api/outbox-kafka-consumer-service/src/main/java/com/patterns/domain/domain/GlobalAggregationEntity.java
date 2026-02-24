@@ -1,4 +1,4 @@
-package com.patterns.domain.domain;
+package main.java.com.patterns.domain.domain;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

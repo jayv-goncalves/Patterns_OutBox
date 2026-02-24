@@ -1,8 +1,8 @@
-package com.patterns.adapters.repositories;
+package main.java.com.patterns.adapters.repositories;
 
-import com.patterns.ports.out.repository.AggregationRepository;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.Query;
+import main.java.com.patterns.ports.out.repository.AggregationRepository;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 

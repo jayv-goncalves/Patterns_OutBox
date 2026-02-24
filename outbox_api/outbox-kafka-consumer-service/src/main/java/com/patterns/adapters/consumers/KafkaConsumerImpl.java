@@ -1,8 +1,8 @@
-package com.patterns.adapters.consumers;
+package main.java.com.patterns.adapters.consumers;
 
-import com.patterns.dtos.UserEventsDTO;
-import com.patterns.ports.in.service.ProcessEventService;
-import com.patterns.ports.out.consumers.EventConsumer;
+import main.java.com.patterns.dtos.UserEventsDTO;
+import main.java.com.patterns.ports.in.service.ProcessEventService;
+import main.java.com.patterns.ports.out.consumers.EventConsumer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.kafka.annotation.KafkaListener;

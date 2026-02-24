@@ -1,4 +1,4 @@
-package com.patterns.ports.out.repository;
+package main.java.com.patterns.ports.out.repository;
 
 
 public interface AggregationRepository {
