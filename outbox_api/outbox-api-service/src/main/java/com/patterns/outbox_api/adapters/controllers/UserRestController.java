@@ -1,8 +1,8 @@
-package com.patterns.outbox_api.adapters.controllers;
+package main.java.com.patterns.outbox_api.adapters.controllers;
 
-import com.patterns.outbox_api.dtos.UserDTO;
-import com.patterns.outbox_api.ports.in.services.UserService;
 import jakarta.transaction.Transactional;
+import main.java.com.patterns.outbox_api.dtos.UserDTO;
+import main.java.com.patterns.outbox_api.ports.in.services.UserService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

@@ -1,10 +1,10 @@
-package com.patterns.outbox_api.domain.service;
+package main.java.com.patterns.outbox_api.domain.service;
 
-import com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
-import com.patterns.outbox_api.domain.entity.UserAggregationEntity;
-import com.patterns.outbox_api.dtos.AggregationDTO;
-import com.patterns.outbox_api.ports.in.services.AggregationService;
-import com.patterns.outbox_api.ports.out.repositories.AggregationRepository;
+import main.java.com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
+import main.java.com.patterns.outbox_api.domain.entity.UserAggregationEntity;
+import main.java.com.patterns.outbox_api.dtos.AggregationDTO;
+import main.java.com.patterns.outbox_api.ports.in.services.AggregationService;
+import main.java.com.patterns.outbox_api.ports.out.repositories.AggregationRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;

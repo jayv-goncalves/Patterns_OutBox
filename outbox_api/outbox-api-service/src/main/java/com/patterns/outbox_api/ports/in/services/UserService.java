@@ -1,6 +1,7 @@
-package com.patterns.outbox_api.ports.in.services;
+package main.java.com.patterns.outbox_api.ports.in.services;
 
-import com.patterns.outbox_api.dtos.UserDTO;
+
+import main.java.com.patterns.outbox_api.dtos.UserDTO;
 
 public interface UserService {
     UserDTO getUserById(String id);

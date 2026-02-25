@@ -1,4 +1,4 @@
-package com.patterns.outbox_api.domain.entity;
+package main.java.com.patterns.outbox_api.domain.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;

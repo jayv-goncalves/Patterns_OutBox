@@ -1,9 +1,9 @@
-package com.patterns.outbox_api.adapters.repositories;
+package main.java.com.patterns.outbox_api.adapters.repositories;
 
-import com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
-import com.patterns.outbox_api.domain.entity.UserAggregationEntity;
-import com.patterns.outbox_api.ports.out.repositories.AggregationRepository;
 import jakarta.persistence.EntityManager;
+import main.java.com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
+import main.java.com.patterns.outbox_api.domain.entity.UserAggregationEntity;
+import main.java.com.patterns.outbox_api.ports.out.repositories.AggregationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 

@@ -1,11 +1,11 @@
-package com.patterns.outbox_api.domain.service;
+package main.java.com.patterns.outbox_api.domain.service;
 
-import com.patterns.outbox_api.domain.entity.UsersEntity;
-import com.patterns.outbox_api.domain.entity.UsersEventsEntity;
-import com.patterns.outbox_api.dtos.UserDTO;
-import com.patterns.outbox_api.ports.in.services.UserService;
-import com.patterns.outbox_api.ports.out.repositories.UserRepository;
-import com.patterns.outbox_api.ports.out.repositories.UsersEventsRepository;
+import main.java.com.patterns.outbox_api.domain.entity.UsersEntity;
+import main.java.com.patterns.outbox_api.domain.entity.UsersEventsEntity;
+import main.java.com.patterns.outbox_api.dtos.UserDTO;
+import main.java.com.patterns.outbox_api.ports.in.services.UserService;
+import main.java.com.patterns.outbox_api.ports.out.repositories.UserRepository;
+import main.java.com.patterns.outbox_api.ports.out.repositories.UsersEventsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

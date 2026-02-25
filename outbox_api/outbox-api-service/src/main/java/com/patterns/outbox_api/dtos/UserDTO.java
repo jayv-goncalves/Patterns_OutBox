@@ -1,4 +1,4 @@
-package com.patterns.outbox_api.dtos;
+package main.java.com.patterns.outbox_api.dtos;
 
 public class UserDTO {
     public String id;

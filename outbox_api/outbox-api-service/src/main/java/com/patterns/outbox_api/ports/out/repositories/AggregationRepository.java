@@ -1,7 +1,7 @@
-package com.patterns.outbox_api.ports.out.repositories;
+package main.java.com.patterns.outbox_api.ports.out.repositories;
 
-import com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
-import com.patterns.outbox_api.domain.entity.UserAggregationEntity;
+import main.java.com.patterns.outbox_api.domain.entity.GlobalAggregationEntity;
+import main.java.com.patterns.outbox_api.domain.entity.UserAggregationEntity;
 
 import java.util.Optional;
 import java.util.UUID;

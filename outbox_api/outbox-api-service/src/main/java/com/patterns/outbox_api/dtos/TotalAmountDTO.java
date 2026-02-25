@@ -1,12 +1,12 @@
-package com.patterns.outbox_api.responses;
+package main.java.com.patterns.outbox_api.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
-public class TotalAmountResponse{
+public class TotalAmountDTO {
     @JsonProperty("total_money_transferred")
     Long money;
 
-    public TotalAmountResponse(Long money) {
+    public TotalAmountDTO(Long money) {
         this.money = money;
     }
 
