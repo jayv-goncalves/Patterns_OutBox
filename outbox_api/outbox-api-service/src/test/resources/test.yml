@@ -1,12 +1,15 @@
 spring.application.name: outbox-api-service
 
 spring:
+  docker:
+    compose:
+      enabled: false
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     generate-ddl: false
     show-sql: true
   datasource:
-    url: jdbc:mysql://localhost:3306/outbox-db
-    username: appuser
-    password: apppassword
+    url:
+    username:
+    password:
     driver-class-name: com.mysql.cj.jdbc.Driver

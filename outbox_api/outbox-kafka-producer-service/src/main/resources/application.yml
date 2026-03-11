@@ -1,7 +1,8 @@
 spring.application.name: outbox-kafka-producer-service
 
 spring:
-  jpa:
+  jpa:  
+    generate-ddl: false
     show-sql: true
   datasource:
     url: jdbc:mysql://localhost:3306/outbox-db

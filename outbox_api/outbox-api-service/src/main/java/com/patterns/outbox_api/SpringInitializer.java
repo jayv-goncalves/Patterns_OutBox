@@ -1,4 +1,4 @@
-package main.java.com.patterns.outbox_api;
+package com.patterns.outbox_api;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

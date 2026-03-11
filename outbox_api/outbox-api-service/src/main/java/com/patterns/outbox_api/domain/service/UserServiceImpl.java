@@ -1,11 +1,12 @@
-package main.java.com.patterns.outbox_api.domain.service;
+package com.patterns.outbox_api.domain.service;
 
-import main.java.com.patterns.outbox_api.domain.entity.UsersEntity;
-import main.java.com.patterns.outbox_api.domain.entity.UsersEventsEntity;
-import main.java.com.patterns.outbox_api.dtos.UserDTO;
-import main.java.com.patterns.outbox_api.ports.in.services.UserService;
-import main.java.com.patterns.outbox_api.ports.out.repositories.UserRepository;
-import main.java.com.patterns.outbox_api.ports.out.repositories.UsersEventsRepository;
+import com.patterns.outbox_api.domain.entity.UsersEntity;
+import com.patterns.outbox_api.domain.entity.UsersEventsEntity;
+import com.patterns.outbox_api.dtos.UserDTO;
+import com.patterns.outbox_api.ports.in.services.UserService;
+import com.patterns.outbox_api.ports.out.repositories.UserRepository;
+import com.patterns.outbox_api.ports.out.repositories.UsersEventsRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,6 +25,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDTO getUserById(String id) {
         UUID uuid = UUID.fromString(id);
 
@@ -38,26 +40,33 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    @Transactional
     public UserDTO insertUser(UserDTO userDTO) {
-        UsersEntity usersEntity = new UsersEntity();
-        usersEntity.setId(UUID.randomUUID());
-        usersEntity.setName(userDTO.getName());
-        usersEntity.setMoney(userDTO.getMoney());
+        try {
+            UsersEntity usersEntity = new UsersEntity();
+            usersEntity.setId(UUID.randomUUID());
+            usersEntity.setName(userDTO.getName());
+            usersEntity.setMoney(userDTO.getMoney());
 
-        UsersEntity insertedUser = userRepository.save(usersEntity);
+            UsersEntity insertedUser = userRepository.save(usersEntity);
 
-        UsersEventsEntity usersEventsEntity = new UsersEventsEntity();
-        usersEventsEntity.setId_user(usersEventsEntity.getId_user());
+            UsersEventsEntity usersEventsEntity = new UsersEventsEntity();
+            usersEventsEntity.setId_user(insertedUser.getId());
+            usersEventsEntity.setStatus("PENDING");
 
-        UserDTO insertedUserDTO = new UserDTO();
-        insertedUserDTO.setId(insertedUser.getId().toString());
-        insertedUserDTO.setName(insertedUser.getName());
-        insertedUserDTO.setMoney(insertedUser.getMoney());
+            UserDTO insertedUserDTO = new UserDTO();
+            insertedUserDTO.setId(insertedUser.getId().toString());
+            insertedUserDTO.setName(insertedUser.getName());
+            insertedUserDTO.setMoney(insertedUser.getMoney());
 
-        //Convert to Domain/entity
-        userEventsRepository.save(usersEventsEntity);
+            //Convert to Domain/entity
+            userEventsRepository.save(usersEventsEntity);
 
-        return insertedUserDTO;
+            return insertedUserDTO;
+        } catch (Exception e) {
+            System.out.print(e);
+            throw e;
+        }
     }
 
     //TODO: Refact this method
@@ -65,6 +74,7 @@ public class UserServiceImpl implements UserService {
     // Verify if is NULL before updating
     // Improve the way response is returned
     @Override
+    @Transactional
     public UserDTO updateUser(String id, UserDTO userDTO) {
         UUID uuid = UUID.fromString(id);
 

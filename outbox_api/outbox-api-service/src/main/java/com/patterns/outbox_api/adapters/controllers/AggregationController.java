@@ -1,9 +1,8 @@
-package main.java.com.patterns.outbox_api.adapters.controllers;
+package com.patterns.outbox_api.adapters.controllers;
 
-
-import main.java.com.patterns.outbox_api.dtos.AggregationDTO;
-import main.java.com.patterns.outbox_api.dtos.TotalAmountDTO;
-import main.java.com.patterns.outbox_api.ports.in.services.AggregationService;
+import com.patterns.outbox_api.dtos.AggregationDTO;
+import com.patterns.outbox_api.dtos.TotalAmountDTO;
+import com.patterns.outbox_api.ports.in.services.AggregationService;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

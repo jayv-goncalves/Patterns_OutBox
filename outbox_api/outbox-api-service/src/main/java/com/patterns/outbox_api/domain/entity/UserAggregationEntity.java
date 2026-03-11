@@ -1,5 +1,6 @@
-package main.java.com.patterns.outbox_api.domain.entity;
+package com.patterns.outbox_api.domain.entity;
 
+import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
@@ -11,6 +12,7 @@ import java.util.UUID;
 @Table(name = "users_aggregations")
 public class UserAggregationEntity {
     @Id
+    @Column(columnDefinition = "BINARY(16)")
     private UUID user_id;
 
     private Long total_money;

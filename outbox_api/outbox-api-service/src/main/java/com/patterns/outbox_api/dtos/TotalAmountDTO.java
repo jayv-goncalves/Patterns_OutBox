@@ -1,4 +1,4 @@
-package main.java.com.patterns.outbox_api.dtos;
+package com.patterns.outbox_api.dtos;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 
