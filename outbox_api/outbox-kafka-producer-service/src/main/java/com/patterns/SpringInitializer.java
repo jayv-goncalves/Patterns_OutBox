@@ -1,9 +1,11 @@
-package main.java.com.patterns;
+package com.patterns;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 
 @SpringBootApplication
+@EnableCaching
 public class SpringInitializer {
 
     public static void main(String[] args) {

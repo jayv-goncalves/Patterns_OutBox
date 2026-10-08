@@ -1,14 +1,16 @@
-package main.java.com.patterns.dtos;
+package com.patterns.dtos;
+
+import com.patterns.utils.BinaryConverter;
 
 public class UserEventsDTO {
     public Long id_event;
-    public Long id_user;
+    public String id_user;
     public Long money;
     public String status;
 
     public UserEventsDTO(){}
 
-    public UserEventsDTO(Long id_event, Long id_user, Long money, String status) {
+    public UserEventsDTO(Long id_event, String id_user, Long money, String status) {
         this.id_event = id_event;
         this.id_user = id_user;
         this.money = money;
@@ -23,11 +25,11 @@ public class UserEventsDTO {
         this.id_event = id_event;
     }
 
-    public Long getId_user() {
+    public String getId_user() {
         return id_user;
     }
 
-    public void setId_user(Long id_user) {
+    public void setId_user(String id_user) {
         this.id_user = id_user;
     }
 
@@ -51,7 +53,7 @@ public class UserEventsDTO {
     public String toString() {
         return "UserEvents{" +
                 "id_event=" + id_event +
-                ", id_user=" + id_user +
+                ", id_user=" + BinaryConverter.base64ToUUID(id_user) +
                 ", money=" + money +
                 ", status='" + status + '\'' +
                 '}';

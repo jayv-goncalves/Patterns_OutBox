@@ -1,11 +1,11 @@
-package main.java.com.patterns.infraestructure.config;
+package com.patterns.infrastructure.config;
 
+import com.patterns.infrastructure.properties.DebeziumProperties;
+import com.patterns.ports.in.services.ProcessDatabaseEventService;
 import io.debezium.engine.ChangeEvent;
 import io.debezium.engine.DebeziumEngine;
 import io.debezium.engine.format.Json;
 import io.debezium.engine.format.KeyValueHeaderChangeEventFormat;
-import main.java.com.patterns.infraestructure.properties.DebeziumProperties;
-import main.java.com.patterns.ports.in.services.ProcessDatabaseEventService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

@@ -1,19 +1,24 @@
-package main.java.com.patterns.domain.service;
+package com.patterns.domain.service;
 
 import com.google.gson.Gson;
-import main.java.com.patterns.domain.entity.UsersEventsEntity;
-import main.java.com.patterns.dtos.EventStatus;
-import main.java.com.patterns.dtos.PayloadDataDTO;
-import main.java.com.patterns.dtos.UserEventsDTO;
-import main.java.com.patterns.ports.in.services.ProcessDatabaseEventService;
-import main.java.com.patterns.ports.out.publishers.EventPublisher;
-import main.java.com.patterns.ports.out.repositories.UsersEventsRepository;
+import com.patterns.domain.entity.UsersEventsEntity;
+import com.patterns.dtos.EventStatus;
+import com.patterns.dtos.PayloadDataDTO;
+import com.patterns.dtos.UserEventsDTO;
+import com.patterns.ports.in.services.ProcessDatabaseEventService;
+import com.patterns.ports.out.publishers.EventPublisher;
+import com.patterns.ports.out.repositories.UsersEventsRepository;
+import com.patterns.utils.BinaryConverter;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import java.util.Objects;
 
 @Service
 public class ProcessDatabaseEventServiceImpl implements ProcessDatabaseEventService {
+
+    private static final Logger logger = LoggerFactory.getLogger(ProcessDatabaseEventServiceImpl.class);
 
     private final EventPublisher eventPublisher;
     private final UsersEventsRepository usersEventsRepository;
@@ -24,6 +29,7 @@ public class ProcessDatabaseEventServiceImpl implements ProcessDatabaseEventServ
     }
 
     @Override
+    //TODO: define logic to deduplicate
     public void execute(String event) {
         UserEventsDTO userEvents = mapEvent(event);
 
@@ -31,15 +37,17 @@ public class ProcessDatabaseEventServiceImpl implements ProcessDatabaseEventServ
             userEvents.status = EventStatus.IN_PROCESS.name();
             usersEventsRepository.save(mapEntity(userEvents));
 
-            System.out.println(userEvents);
+            logger.info("Processing event for user: {}", userEvents.getId_user());
             boolean isSuccess = eventPublisher.publishEvent(userEvents);
 
             if(isSuccess) {
                 userEvents.status = EventStatus.COMPLETED.name();
                 usersEventsRepository.save(mapEntity(userEvents));
+                logger.info("Event processed successfully for user: {}", userEvents.getId_user());
             } else {
                 userEvents.status = EventStatus.PENDING.name();
                 usersEventsRepository.save(mapEntity(userEvents));
+                logger.warn("Event processing failed for user: {}", userEvents.getId_user());
             }
         }
     }
@@ -59,8 +67,7 @@ public class ProcessDatabaseEventServiceImpl implements ProcessDatabaseEventServ
     private UsersEventsEntity mapEntity(UserEventsDTO userEvents) {
         UsersEventsEntity usersEventsEntity = new UsersEventsEntity();
         usersEventsEntity.setId_event(userEvents.getId_event());
-        usersEventsEntity.setId_user(userEvents.getId_user());
-        usersEventsEntity.setMoney(userEvents.getMoney());
+        usersEventsEntity.setId_user(BinaryConverter.base64ToUUID(userEvents.getId_user()));
         usersEventsEntity.setStatus(userEvents.getStatus());
         return usersEventsEntity;
     }

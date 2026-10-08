@@ -1,7 +1,9 @@
-package main.java.com.patterns.adapters.publishers;
+package com.patterns.adapters.publishers;
 
-import main.java.com.patterns.dtos.UserEventsDTO;
-import main.java.com.patterns.ports.out.publishers.EventPublisher;
+import com.patterns.dtos.UserEventsDTO;
+import com.patterns.ports.out.publishers.EventPublisher;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.support.SendResult;
@@ -11,6 +13,8 @@ import java.util.Objects;
 
 @Service
 public class KafkaPublisherImpl implements EventPublisher {
+
+    private static final Logger logger = LoggerFactory.getLogger(KafkaPublisherImpl.class);
 
     @Value(value = "${spring.kafka.topic}")
     private String topicName;
@@ -24,11 +28,12 @@ public class KafkaPublisherImpl implements EventPublisher {
     @Override
     public boolean publishEvent(UserEventsDTO userEvents) {
         try {
-            System.out.println("Publishing: " + userEvents);
+            logger.info("Publishing event: {}", userEvents);
             SendResult<String, UserEventsDTO> result = kafkaTemplate.send(topicName, userEvents.id_event.toString(), userEvents).get();
 
             return Objects.nonNull(result);
         } catch (Exception exception) {
+            logger.error("Error publishing event", exception);
             return false;
         }
     }

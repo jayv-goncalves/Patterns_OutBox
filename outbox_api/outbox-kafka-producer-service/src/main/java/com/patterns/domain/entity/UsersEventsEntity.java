@@ -1,6 +1,8 @@
-package main.java.com.patterns.domain.entity;
+package com.patterns.domain.entity;
 
 import jakarta.persistence.*;
+
+import java.util.UUID;
 
 @Entity
 @Table(name = "users_events")
@@ -9,24 +11,21 @@ public class UsersEventsEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_event;
 
-    private Long id_user;
-
-    private Long money;
+    @Column(columnDefinition = "BINARY(16)")
+    private UUID id_user;
 
     private String status;
 
     public UsersEventsEntity() {}
 
-    public UsersEventsEntity(Long id_user, Long money, String status) {
+    public UsersEventsEntity(UUID id_user, String status) {
         this.id_user = id_user;
-        this.money = money;
         this.status = status;
     }
 
-    public UsersEventsEntity(Long id_event, Long id_user, Long money, String status) {
+    public UsersEventsEntity(Long id_event, UUID id_user, String status) {
         this.id_event = id_event;
         this.id_user = id_user;
-        this.money = money;
         this.status = status;
     }
 
@@ -38,20 +37,12 @@ public class UsersEventsEntity {
         this.id_event = id_event;
     }
 
-    public Long getId_user() {
+    public UUID getId_user() {
         return id_user;
     }
 
-    public void setId_user(Long id_user) {
+    public void setId_user(UUID id_user) {
         this.id_user = id_user;
-    }
-
-    public Long getMoney() {
-        return money;
-    }
-
-    public void setMoney(Long money) {
-        this.money = money;
     }
 
     public String getStatus() {

@@ -1,4 +1,4 @@
-package main.java.com.patterns.dtos;
+package com.patterns.dtos;
 
 public enum EventStatus {
     PENDING,

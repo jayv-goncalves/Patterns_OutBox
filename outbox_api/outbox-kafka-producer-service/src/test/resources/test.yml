@@ -1,0 +1,49 @@
+spring:
+  application:
+    name: outbox-kafka-producer-service
+  jpa:
+    database-platform: MySQL8Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+  datasource:
+    url: jdbc:mysql://localhost:3306/outbox-db-test?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: appuser
+    password: apppassword
+  kafka:
+    bootstrap-servers: localhost:9092
+    topic: outbox-test
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+
+debezium:
+  name: mysql-connector
+  connector-class: io.debezium.connector.mysql.MySqlConnector
+  bootstrap-servers: localhost:9092
+  database:
+    hostname: localhost
+    port: 3306
+    user: appuser
+    password: apppassword
+    server-id: 1
+    server-name: mysql-server
+    include-list: outbox-db
+  table:
+    include-list: outbox-db.users_events
+  offset:
+    storage: org.apache.kafka.connect.storage.FileOffsetBackingStore
+    storage-file-filename: /tmp/offsets.dat
+    flush-interval-ms: 60000
+  schema-history:
+    internal: io.debezium.relational.history.FileDatabaseHistory
+    internal-file-filename: /tmp/dbhistory.dat
+  topic:
+    prefix: dbserver
+
+logging:
+  level:
+    root: INFO
+    com.patterns: DEBUG

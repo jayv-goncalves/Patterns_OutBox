@@ -1,4 +1,4 @@
-package main.java.com.patterns.infraestructure.properties;
+package com.patterns.infrastructure.properties;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
